@@ -1,0 +1,31 @@
+
+img {
+    background-color: bisque;
+    border-style: solid;
+}
+
+img:hover {
+    border-color: red;
+}
+
+.clothes {
+    background-color: darkcyan;
+}
+
+.food {
+    background-color: darkseagreen;
+}
+
+.discount {
+    border-radius: 20%;
+    border-style: dotted;
+}
+
+.out-of-stock {
+    border-radius: 50%;
+}
+
+.out-of-stock:hover {
+    background-color: red;
+}
+
