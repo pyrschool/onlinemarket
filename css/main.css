@@ -9,6 +9,31 @@ img:hover {
     border-color: red;
 }
 
+.store-front {
+    background-color: bisque;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: space-evenly;
+}
+
+.store-item {
+    border-style: dotted;
+}
+
+.payment-methods {
+    background-color: floralwhite;
+    display: flex;
+}
+
+.payment-method {
+    border-style: solid;
+}
+
+.payment-method-big {
+    border-style: solid;
+}
+
 .clothes {
     background-color: darkcyan;
 }
