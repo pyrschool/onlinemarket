@@ -2,6 +2,7 @@
 img {
     background-color: bisque;
     border-style: solid;
+    width: 100px;
 }
 
 img:hover {
