@@ -1,7 +1,6 @@
-
 img {
     background-color: bisque;
-    border-style: solid;
+    /* border-style: solid; */
     width: 100px;
 }
 
@@ -13,25 +12,37 @@ img:hover {
     background-color: bisque;
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: rem;
     justify-content: space-evenly;
+    text-align: center;
 }
 
 .store-item {
-    border-style: dotted;
+    border-style: double none none double;
+    border-color: gray;
+    padding: 1rem;
+    margin: 1rem;
 }
 
 .payment-methods {
     background-color: floralwhite;
     display: flex;
+    flex-flow: row;
+    justify-content: space-evenly;
 }
 
 .payment-method {
-    border-style: solid;
+    /* border-style: solid; */
 }
 
+.payment-methods img  {
+    background-color: transparent;
+    
+}
+
+
 .payment-method-big {
-    border-style: solid;
+    /* border-style: solid; */
 }
 
 .clothes {
