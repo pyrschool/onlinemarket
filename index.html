@@ -24,10 +24,11 @@
     <p>You accept all kinds of payment: cash, credit card, debit card, paypal.</p>
     <p>Keep an eye on our online store! You get quality and save money at the same time!</p>
     <div class="message">
-        <!-- minors -->
-        <h3 hidden class="message">You are not allowed to eshop.</h3>
-        <!-- elder -->
-        <h3 hidden class="message">We have special offerings for you.</h3>
+        <script>
+            if (userAge < 18) {
+                document.write('<h3>You are not allowed to eshop.</h3>')
+            }
+        </script>
     </div>
 
     <div class="store-front">
