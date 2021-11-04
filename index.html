@@ -25,6 +25,15 @@
     <p>Keep an eye on our online store! You get quality and save money at the same time!</p>
     <div class="message">
         <script>
+            if ( name === "Thodoris" ) {
+                document.write('<h3>Lucky you!!! You have a special gift!</h3>')
+            }
+            if (userAge === 50 ) {
+                document.write('<h3>Lucky you!!! You won a iphone X!</h3>')
+            } else {
+                document.write('<h3>Bad luck. Your age is all wrong.</h3>')
+            }
+
             if (userAge < 18) {
                 document.write('<h3>You are not allowed to eshop.</h3>')
             }
