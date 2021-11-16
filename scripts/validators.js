@@ -2,25 +2,16 @@ function validateCC(number1, number2, number3, number4, ccv, holder, expYear, ex
     console.log(`Received: ${number1}-${number2}-${number3}-${number4}`)
     console.log(`Received: ${ccv}-${holder}-${expYear}-${expMonth}`)
 
-    if (validateCCNumber(number1)===false) {
-        return false
-    }
-
-    if (validateCCNumber(number2) === false) {
-        return false
-    }
-
-    if (validateCCNumber(number3) === false) {
-        return false
-    }
-
-    if (validateCCNumber(number4) === false) {
+    if (!validateCCNumber(number1) ||
+        !validateCCNumber(number2) ||
+        !validateCCNumber(number3) ||
+        !validateCCNumber(number4)) {
+        console.log("Bad credit card number")
         return false
     }
 
     return true
 }
-
 
 function validateCCNumber(ccn) {
     if (ccn.length !== 4) {
