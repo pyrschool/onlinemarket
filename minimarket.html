@@ -29,6 +29,19 @@
             "Bread and cookies",
         ]
 
+        const images = [
+           "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/samsung/265/jeans_1f456.png",
+           "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/samsung/265/egg_1f95a.png",
+           "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/samsung/265/bouquet_1f490.png",
+           "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/samsung/265/spaghetti_1f35d.png",
+           "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/samsung/265/lemon_1f34b.png",
+           "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/samsung/265/womans-clothes_1f45a.png",
+           "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/samsung/265/eggplant_1f346.png",
+           "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/samsung/265/sandwich_1f96a.png",
+           "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/samsung/265/bread_1f35e.png",
+
+        ]
+
         let index = 0;
     </script>
     <!-- <div class="store-front">
@@ -100,7 +113,7 @@
     <div class="store-front">
         <script>
             for (let idx in category) {
-                document.write(`<div class="store-item"><p>[${category[idx].toUpperCase()}]</p></div>`)
+                document.write(`<div class="store-item"><img class="food" src="${images[idx]}"><p>[${category[idx].toUpperCase()}]</p></div>`)
             }
             // for (let item of category) {
             //     document.write(`<div class="store-item"><p>${item.toLowerCase()}</p></div>`)
