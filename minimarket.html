@@ -16,63 +16,112 @@
     <p>Keep an eye on our online store! You get quality and save money at the same time!</p>
 
     <script>
-        const category1 = "Clothes for everyone"
-        const category2 = "Food ~ fresh and delicious"
-        const category3 = "Flowers ~ for all occasions"
-        const category4 = "Cooked food ~ for lunch and supper"
-        const category5 = "Delicious Fruits"
-        const category6 = "Vegetables"
-        const category7 = "Sandwiches and toasts"
-        const category8 = "Bread and cookies"
-        const category9 = "Clothes ~ for women only."
+
+        const category = [
+            "Clothes ~ unisex clothing",
+            "Food ~ fresh and delicious",
+            "Flowers ~ for all occasions",
+            "Cooked food ~ for lunch and supper",
+            "Fruits",
+            "Clothes ~ for women only.",
+            "Vegetables",
+            "Sandwiches and toasts",
+            "Bread and cookies",
+        ]
+
+        let index = 0;
     </script>
-    <div class="store-front">
+    <!-- <div class="store-front">
         <div class="store-item">
             <img class="clothes out-of-stock"
                 src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/samsung/265/jeans_1f456.png">
-            <p><script>document.write(category1)</script></p>
+            <p>
+                <script>document.write(category[index++])</script>
+            </p>
         </div>
         <div class="store-item">
             <img class="food"
                 src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/samsung/265/egg_1f95a.png">
-            <p><script>document.write(category2)</script></p>
+            <p>
+                <script>document.write(category[index++])</script>
+            </p>
         </div>
         <div class="store-item">
             <img class="discount"
                 src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/samsung/265/bouquet_1f490.png">
-            <p><script>document.write(category3)</script></p>
+            <p>
+                <script>document.write(category[index++])</script>
+            </p>
         </div>
         <div class="store-item">
             <img class="food"
                 src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/samsung/265/spaghetti_1f35d.png">
-            <p><script>document.write(category4)</script></p>
+            <p>
+                <script>document.write(category[index++])</script>
+            </p>
         </div>
         <div class="store-item">
             <img class="food"
                 src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/samsung/265/lemon_1f34b.png">
-            <p><script>document.write(category5)</script></p>
+            <p>
+                <script>document.write(category[index++])</script>
+            </p>
         </div>
         <div class="store-item">
             <img class="discount clothes"
                 src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/samsung/265/womans-clothes_1f45a.png">
-            <p><script>document.write(category6)</script></p>
+            <p>
+                <script>document.write(category[index++])</script>
+            </p>
         </div>
         <div class="store-item">
             <img class="food out-of-stock"
                 src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/samsung/265/eggplant_1f346.png">
-            <p><script>document.write(category7)</script></p>
+            <p>
+                <script>document.write(category[index++])</script>
+            </p>
         </div>
         <div class="store-item">
             <img class="food discount"
                 src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/samsung/265/sandwich_1f96a.png">
-            <p><script>document.write(category8)</script></p>
+            <p>
+                <script>document.write(category[index++])</script>
+            </p>
         </div>
         <div class="store-item">
             <img class="food"
                 src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/samsung/265/bread_1f35e.png">
-            <p><script>document.write(category9)</script></p>
+            <p>
+                <script>document.write(category[index++])</script>
+            </p>
         </div>
+    </div> -->
+
+    <div class="store-front">
+        <script>
+            for (let idx in category) {
+                document.write(`<div class="store-item"><p>[${category[idx].toUpperCase()}]</p></div>`)
+            }
+            // for (let item of category) {
+            //     document.write(`<div class="store-item"><p>${item.toLowerCase()}</p></div>`)
+            // }
+
+            // let i = 0;
+            // i<category.length
+            // i++
+
+
+            // for (let i=0; i < category.length; i++) {
+            //     document.write(`<div class="store-item"><p>[${category[i].toUpperCase()}]</p></div>`)
+            // }
+
+
+            
+
+
+        </script>
     </div>
+
 
     <div class="store-front">
         <div class="store-item">
