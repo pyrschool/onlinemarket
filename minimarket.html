@@ -23,67 +23,117 @@
                 imageURI: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/samsung/265/jeans_1f456.png",
                 discount: false,
                 outOfStock: true,
-                category: "clothes"
+                category: "clothes",
+                price: "10",
+                discountPerc: "0",
             },
             { 
                 description: "Food ~ fresh and delicious", 
                 imageURI:  "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/samsung/265/egg_1f95a.png",
                 discount: false,
                 outOfStock: false,
-                category: "food"
+                category: "food",
+                price: "5",
+                discountPerc: "0",
             },
             { 
                 description: "Flowers ~ for all occasions", 
                 imageURI:  "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/samsung/265/bouquet_1f490.png",
                 discount: true,
                 outOfStock: false,
-                category: "none"
+                category: "none",
+                price: "3",
+                discountPerc: "25",
+
             },
             { 
                 description: "Cooked food ~ for lunch and supper", 
                 imageURI: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/samsung/265/spaghetti_1f35d.png" ,
                 discount: false,
                 outOfStock: false,
-                category: "food"
+                category: "food",
+                price: "15",
+                discountPerc: "0",
             },
             { 
                 description: "Fruits", 
                 imageURI: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/samsung/265/lemon_1f34b.png" ,
                 discount: false,
                 outOfStock: false,
-                category: "food"
+                category: "food",
+                price: "0.5",
+                discountPerc: "0",
             },
             { 
                 description: "Clothes ~ for women only.", 
                 imageURI: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/samsung/265/womans-clothes_1f45a.png" ,
                 discount: true,
                 outOfStock: false,
-                category: "clothes"
+                category: "clothes",
+                price: "7",
+                discountPerc: "33",
             },
             { 
                 description: "Vegetables", 
                 imageURI: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/samsung/265/eggplant_1f346.png" ,
                 discount: false,
                 outOfStock: true,
-                category: "food"
+                category: "food",
+                price: "0.3",
+                discountPerc: "0",
             },
             { 
                 description: "Sandwiches and toasts", 
                 imageURI: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/samsung/265/sandwich_1f96a.png" ,
                 discount: true,
                 outOfStock: false,
-                category: "food"
+                category: "food",
+                price: "2",
+                discountPerc: "10",
             },
             { 
                 description: "Bread and cookies", 
                 imageURI: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/samsung/265/bread_1f35e.png" ,
                 discount: false,
                 outOfStock: false,
-                category: "food"
+                category: "food",
+                price: "3",
+                discountPerc: "0",
             },
         ]
+
+        function sortOnDescription() {
+            console.log("Sorting on description")
+            categObjects.sort(function comparator(a, b) {
+                return (a.description === b.description) ? 0 : (a.description > b.description) ? 1 : -1
+            })
+        }
+        
+        function sortOnDescriptionDesc() {
+            console.log("Sorting on description desc")
+            sortOnDescription()
+            categObjects.reverse()
+        }
+        
+        function discountedFirst() {
+            console.log("Sorting on discount")
+            categObjects.sort(function comparator(a, b) {
+                if (a.discount === b.discount) return 0
+                if (a.discount < b.discount) return 1
+                if (a.discount > b.discount) return -1
+            })
+        }
+
+
+        console.log(categObjects)
+
     </script>
 
+    <div class="buttons">
+        <input type="button" value="Sort Asc" onclick="sortOnDescription()">
+        <input type="button" value="Sort Desc" onclick="sortOnDescriptionDesc()">
+        <input type="button" value="Bargains first!" onclick="discountedFirst()">
+    </div>
     <div class="store-front" id="storeFront" name="storeFront">
         <script>
             for (let idx in categObjects) {
