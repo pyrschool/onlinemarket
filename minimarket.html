@@ -102,42 +102,10 @@
             },
         ]
 
-        function sortOnDescription() {
-            console.log("Sorting on description")
-            categObjects.sort(function comparator(a, b) {
-                return (a.description === b.description) ? 0 : (a.description > b.description) ? 1 : -1
-            })
-        }
-        
-        function sortOnDescriptionDesc() {
-            console.log("Sorting on description desc")
-            sortOnDescription()
-            categObjects.reverse()
-        }
-        
-        function discountedFirst() {
-            console.log("Sorting on discount")
-            categObjects.sort(function comparator(a, b) {
-                if (a.discount === b.discount) return 0
-                if (a.discount < b.discount) return 1
-                if (a.discount > b.discount) return -1
-            })
-        }
-
-
-        console.log(categObjects)
-
-    </script>
-
-    <div class="buttons">
-        <input type="button" value="Sort Asc" onclick="sortOnDescription()">
-        <input type="button" value="Sort Desc" onclick="sortOnDescriptionDesc()">
-        <input type="button" value="Bargains first!" onclick="discountedFirst()">
-    </div>
-    <div class="store-front" id="storeFront" name="storeFront">
-        <script>
+        function createStoreFront() {
+            const parentElement = document.getElementById("storeFront")
+            parentElement.innerHTML = ""
             for (let idx in categObjects) {
-                const parentElement = document.getElementById("storeFront")
                 const myDiv = document.createElement("div")
                 myDiv.className = "store-item"
                 parentElement.appendChild(myDiv)
@@ -164,7 +132,44 @@
                 myP.innerHTML = categObjects[idx].description
                 myDiv.appendChild(myP)
             }
-        </script>
+        }
+
+        function sortOnDescription() {
+            console.log("Sorting on description")
+            categObjects.sort(function comparator(a, b) {
+                return (a.description === b.description) ? 0 : (a.description > b.description) ? 1 : -1
+            })
+            createStoreFront()
+        }
+        
+        function sortOnDescriptionDesc() {
+            console.log("Sorting on description desc")
+            sortOnDescription()
+            categObjects.reverse()
+            createStoreFront()
+        }
+        
+        function discountedFirst() {
+            console.log("Sorting on discount")
+            categObjects.sort(function comparator(a, b) {
+                if (a.discount === b.discount) return 0
+                if (a.discount < b.discount) return 1
+                if (a.discount > b.discount) return -1
+            })
+            console.log(categObjects)
+            createStoreFront()
+        }
+
+        console.log(categObjects)
+
+    </script>
+
+    <div class="buttons">
+        <input type="button" value="Sort Asc" onclick="sortOnDescription()">
+        <input type="button" value="Sort Desc" onclick="sortOnDescriptionDesc()">
+        <input type="button" value="Bargains first!" onclick="discountedFirst()">
+    </div>
+    <div class="store-front" id="storeFront" name="storeFront">
     </div>
 
     <div class="payment-methods">
@@ -188,5 +193,8 @@
         </div>
     </div>
 </body>
+<script>
+    createStoreFront()
+</script>
 
 </html>
