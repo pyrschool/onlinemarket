@@ -106,10 +106,16 @@
             category.price = parseInt(category.price) - (parseInt(category.price) * (parseInt(category.discountPerc) / 100))
         }
 
+        function isOnDiscount(currentItem) {
+            return currentItem.discount
+        }
+        
         function createStoreFront() {
 
             categObjects.forEach(calcFinalPrice)
-            createDOMOnArray(categObjects)
+            let filteredObjects = categObjects.filter(isOnDiscount)
+
+            createDOMOnArray(filteredObjects)
           
         }
 
