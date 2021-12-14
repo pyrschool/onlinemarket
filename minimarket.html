@@ -102,50 +102,53 @@
             },
         ]
 
-
         function calcFinalPrice(category) {
             category.price = parseInt(category.price) - (parseInt(category.price) * (parseInt(category.discountPerc) / 100))
         }
-        
+
         function createStoreFront() {
 
             categObjects.forEach(calcFinalPrice)
+            createDOMOnArray(categObjects)
+          
+        }
 
+        function createDOMOnArray(objectsArray) {
             // displaying the finalised array
             const parentElement = document.getElementById("storeFront")
             parentElement.innerHTML = ""
-            for (let idx in categObjects) {
+            for (let idx in objectsArray) {
                 const myDiv = document.createElement("div")
                 myDiv.className = "store-item"
                 parentElement.appendChild(myDiv)
 
                 const priceDiv = document.createElement("p")
-                priceDiv.innerHTML = categObjects[idx].price
+                priceDiv.innerHTML = objectsArray[idx].price
                 parentElement.appendChild(priceDiv)
 
                 const myImg = document.createElement("img")
-                myImg.src = categObjects[idx].imageURI
-                if (categObjects[idx].category === "food") {
+                myImg.src = objectsArray[idx].imageURI
+                if (objectsArray[idx].category === "food") {
                     myImg.className = "food"
                 }
-                if (categObjects[idx].category === "clothes") {
+                if (objectsArray[idx].category === "clothes") {
                     myImg.className = "clothes"
                 }
-                if (categObjects[idx].category === "none") {
+                if (objectsArray[idx].category === "none") {
                     myImg.className = ""
                 }
-                if (categObjects[idx].discount) {
+                if (objectsArray[idx].discount) {
                     myImg.classList.add("discount")
                 }
-                if (categObjects[idx].outOfStock) {
+                if (objectsArray[idx].outOfStock) {
                     myImg.classList.add("out-of-stock")
                 }
 
                 myDiv.appendChild(myImg)
                 const myP = document.createElement("p")
-                myP.innerHTML = categObjects[idx].description
+                myP.innerHTML = objectsArray[idx].description
                 myDiv.appendChild(myP)
-            }
+            }        
         }
 
         function sortOnDescription() {
