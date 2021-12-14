@@ -25,7 +25,7 @@
                 outOfStock: true,
                 category: "clothes",
                 price: "10",
-                discountPerc: "0",
+                discountPerc: "33",
             },
             { 
                 description: "Food ~ fresh and delicious", 
@@ -89,7 +89,7 @@
                 outOfStock: false,
                 category: "food",
                 price: "2",
-                discountPerc: "10",
+                discountPerc: "50",
             },
             { 
                 description: "Bread and cookies", 
@@ -102,13 +102,27 @@
             },
         ]
 
+
+        function calcFinalPrice(category) {
+            category.price = parseInt(category.price) - (parseInt(category.price) * (parseInt(category.discountPerc) / 100))
+        }
+        
         function createStoreFront() {
+
+            categObjects.forEach(calcFinalPrice)
+
+            // displaying the finalised array
             const parentElement = document.getElementById("storeFront")
             parentElement.innerHTML = ""
             for (let idx in categObjects) {
                 const myDiv = document.createElement("div")
                 myDiv.className = "store-item"
                 parentElement.appendChild(myDiv)
+
+                const priceDiv = document.createElement("p")
+                priceDiv.innerHTML = categObjects[idx].price
+                parentElement.appendChild(priceDiv)
+
                 const myImg = document.createElement("img")
                 myImg.src = categObjects[idx].imageURI
                 if (categObjects[idx].category === "food") {
