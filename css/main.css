@@ -1,3 +1,8 @@
+.error {
+    background-color: red;
+    color: white;
+}
+
 img {
     background-color: bisque;
     /* border-style: solid; */
@@ -65,4 +70,5 @@ img:hover {
 .out-of-stock:hover {
     background-color: red;
 }
+
 

@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Credit card checkout</title>
     <script src="scripts/validators.js"></script>
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
     <form method="post" action="mini1.html">
+        <div id="error" name="error" class="error" style="visibility: hidden;">An error occured: bad CC</div>
         <label>Number</label>
         <input type="text" name="ccpart1" id="ccpart1">
         <input type="text" name="ccpart2" id="ccpart2">
@@ -26,7 +28,7 @@
         <input type="text" name="holder" id="holder">
         <br>
         <input type="submit" value="Checkout" 
-            onclick="const cc = { number1: '1111', number2:  '2222', number3: '3333', number4: '4444', ccv: '123', holderName: 'D E Pyr', expYear: '2022', expMonth: '12' }; if (validateCC(cc)) { alert('bad cc') } else { passCCDataToTheBank(cc, 120.50, 987) }; return false;">
+            onclick="const cc=getCCDataFromDOM(); if (!validateCC(cc)) { handleCCError('bad cc') } else { passCCDataToTheBank(cc, 120.50, 987) }; return false;">
 </form>
 </body>
 </html>
