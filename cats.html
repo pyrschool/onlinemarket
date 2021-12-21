@@ -61,25 +61,20 @@
         console.log(`before fetch at ${new Date()}`)
 
         fetch('https://catfact.ninja/facts?limit=16&max_length=50')
-            .then(whatIDoWhenFetchIsFinished)
-            .then(whatIDoWhenTheResponseTransformedToObject)
+            .then((response) => {
+                console.log(`fetch finished at ${new Date()}`)
+                console.log(response)
+                return response.json()
+            })
+            .then((object) => {
+                console.log(`transformation finished at ${new Date()}`)
+                console.log(object)
+                console.log(object.data)
+                createDOMOnArray(object.data)
+            })
 
 
         console.log(`after fetch at ${new Date()}`)
-
-
-        function whatIDoWhenFetchIsFinished(response) {
-            console.log(`fetch finished at ${new Date()}`)
-            console.log(response)
-            return response.json()
-        }
-
-        function whatIDoWhenTheResponseTransformedToObject(object) {
-            console.log(`transformation finished at ${new Date()}`)
-            console.log(object)
-            console.log(object.data)
-            createDOMOnArray(object.data)
-        }
 
     </script>
 
