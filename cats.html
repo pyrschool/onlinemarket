@@ -62,14 +62,9 @@
 
         fetch('https://catfact.ninja/facts?limit=16&max_length=50')
             .then((response) => {
-                console.log(`fetch finished at ${new Date()}`)
-                console.log(response)
                 return response.json()
             })
             .then((object) => {
-                console.log(`transformation finished at ${new Date()}`)
-                console.log(object)
-                console.log(object.data)
                 createDOMOnArray(object.data)
             })
 
