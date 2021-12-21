@@ -16,30 +16,30 @@
     <script>
 
         const facts = [
-            { 
-                description: "Cats are lovely", 
+            {
+                fact: "Cats are lovely",
             },
-            { 
-                description: "Cat fact 1", 
+            {
+                fact: "Cat fact 1",
             },
-            { 
-                description: "Cat fact 1", 
+            {
+                fact: "Cat fact 1",
             },
-            { 
-                description: "Cat fact 3", 
+            {
+                fact: "Cat fact 3",
             },
-            { 
-                description: "Cat fact 4", 
+            {
+                fact: "Cat fact 4",
             },
-            { 
-                description: "Cat fact 5", 
+            {
+                fact: "Cat fact 5",
             },
         ]
 
         function createStoreFront() {
 
             createDOMOnArray(facts)
-          
+
         }
 
         function createDOMOnArray(objectsArray) {
@@ -51,12 +51,35 @@
                 myDiv.className = "store-item"
                 parentElement.appendChild(myDiv)
                 const myP = document.createElement("p")
-                myP.innerHTML = objectsArray[idx].description
+                myP.innerHTML = objectsArray[idx].fact
                 myDiv.appendChild(myP)
-            }        
+            }
         }
 
         console.log(facts)
+
+        console.log(`before fetch at ${new Date()}`)
+
+        fetch('https://catfact.ninja/facts?limit=16&max_length=50')
+            .then(whatIDoWhenFetchIsFinished)
+            .then(whatIDoWhenTheResponseTransformedToObject)
+
+
+        console.log(`after fetch at ${new Date()}`)
+
+
+        function whatIDoWhenFetchIsFinished(response) {
+            console.log(`fetch finished at ${new Date()}`)
+            console.log(response)
+            return response.json()
+        }
+
+        function whatIDoWhenTheResponseTransformedToObject(object) {
+            console.log(`transformation finished at ${new Date()}`)
+            console.log(object)
+            console.log(object.data)
+            createDOMOnArray(object.data)
+        }
 
     </script>
 
@@ -65,7 +88,6 @@
 
 </body>
 <script>
-    createStoreFront()
 </script>
 
 </html>
