@@ -15,7 +15,7 @@
 
     <script>
 
-        const facts = [
+        const factsSample = [
             {
                 fact: "Cats are lovely",
             },
@@ -36,9 +36,13 @@
             },
         ]
 
-        function createStoreFront() {
+        function createStoreFront(objectsArray) {
 
-            createDOMOnArray(facts)
+            // sort 
+            
+            // filter
+
+            createDOMOnArray(objectsArray)
 
         }
 
@@ -56,13 +60,13 @@
             }
         }
 
-        console.log(facts)
+        console.log(factsSample)
 
         console.log(`before fetch at ${new Date()}`)
 
         fetch('https://catfact.ninja/facts?limit=16&max_length=50')
             .then(response => response.json() )
-            .then(object => createDOMOnArray(object.data) )
+            .then(object => createStoreFront(object.data) )
 
         console.log(`after fetch at ${new Date()}`)
 
@@ -73,6 +77,7 @@
 
 </body>
 <script>
+    // createStoreFront(factsSample)
 </script>
 
 </html>
